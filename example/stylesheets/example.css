@@ -1,0 +1,23 @@
+/* # Because we need pretty file inputs
+----------------------------------------------------- */
+body {
+  font-family: arial, sans-serif;
+  font-size: x-small;
+  font-variant: normal;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.5em;
+  color: #333333;
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #267CC3;
+}
+
+:focus, :active { outline: 0; }
