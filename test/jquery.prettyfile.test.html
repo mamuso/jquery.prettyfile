@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>JavaScript unit test file</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="assets/unittest.css" type="text/css" />
+  <script src="assets/jsunittest.js" type="text/javascript"></script>
+  <script src="assets/sugar_test.js" type="text/javascript"></script>
+  
+</head>
+<body>
+
+<div id="content">
+
+  <div id="header">
+    <h1>SugarTest sample test file</h1>
+    <p>
+      This file shows example usage of <a href="http://sugartest.scriptia.net/">SugarTest</a>.
+    </p>
+  </div>
+
+  <div id="testlog"></div>
+  
+</div>
+
+<script type="text/javascript">
+// <![CDATA[
+
+SugarTest()
+  .before(function() {
+    this.extra = 'extrawadus';
+  })
+  .context('A context')
+    .before(function() {
+      this.wadus = 'w';
+    })
+    .it('runs its root before setting', function() {
+      this.assertEqual('extrawadus', this.extra);
+    })
+    .it('runs its before setting', function() {
+      this.assertEqual('w', this.wadus);
+    })
+    .describe('when nested')
+      .it('runs its parent setup function', function() {
+        this.assertEqual('w', this.wadus);
+      })
+    .end()
+    .describe('when nested having a setup function')
+      .before(function() {
+        this.wadus += 'a';
+      })
+      .it('runs both setup functions', function() {
+        this.assertEqual('wa', this.wadus);
+      })
+      .describe('with more than a nesting level')
+        .before(function() {
+          this.wadus += 'd';
+        })
+        .it('runs setup methods in order', function() {
+          this.assertEqual('wad', this.wadus);
+        })
+      .end()
+    .end()
+    .describe('that creates a DOM node')
+      .before(function() {
+        document.body.appendChild(document.createElement('h6'));
+      })
+      .after(function() {
+        var h6 = document.getElementsByTagName('h6')[0];
+        h6.parentNode.removeChild(h6);
+      })
+      .it('yes, really, creates the node added', function() {
+        this.assertEqual(1, document.getElementsByTagName('h6').length);
+      })
+    .end()
+    .describe('whose previous context had an after function defined')
+      .should('find that the function was invoked', function() {
+        this.assertEqual(0, document.getElementsByTagName('h6').length);
+      })
+  .root()
+  .it('SugarTest root is a context too', function() {
+    this.assert(true);
+  })
+.run();
+
+// ]]>
+</script>
+</body>
+</html>
