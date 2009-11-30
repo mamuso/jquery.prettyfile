@@ -9,12 +9,14 @@
 </head>
 
 <body>
-
-  <h1>jquery.prettyfile examples</h1>
   
   
   <form action="#" method="post" accept-charset="utf-8">
-    <input type="file" name="wadus" id="clip">
+    
+    
+    <input type="file" name="wadus" id="clip"/>
+    
+    
   </form>
 
   <script src="../test/assets/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
@@ -22,7 +24,9 @@
   <script type="text/javascript" charset="utf-8">
     $(function(){
       // a simple file replacement
-      $("#clip").prettyfile();
+      $("#clip").prettyfile({
+        html: "<strong><span>Choose File</span></strong><span class='pf_placeholder'>Selecciona una wadus</span>"
+      });
     });
   </script>
 </body>

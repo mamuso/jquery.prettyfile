@@ -20,4 +20,45 @@ a {
   color: #267CC3;
 }
 
+form {
+  width: 45em;
+  padding: 2em;
+  background: #E9F1B4;
+  margin: 10px auto;
+  text-align: left;
+}
+
+.pf_wrap_class {
+  height: 1%;
+  overflow: hidden;
+}
+
+.pf_placeholder_cont {
+  width: 40em;
+  float: left;
+  overflow: hidden;
+}
+
+.pf_placeholder_cont strong {
+  float: left;
+  font-size: x-small;
+  padding: 0 0 0 0;
+  width: 139px;
+  height: 29px;
+  background: url('../img/button.png') no-repeat center center;
+}
+
+.pf_placeholder_cont strong span {
+  display: none;
+}
+
+.pf_placeholder {
+  float: left;
+  font-size: 1.2em;
+  padding: 0.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 18.5em;
+}
+
 :focus, :active { outline: 0; }

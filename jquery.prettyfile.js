@@ -14,17 +14,32 @@ $.fn.prettyfile = function(options){
 
   // replace me baby
   return this.each(function() {
-    var $self = $(this),
-        $wrap = document.createElement("span"),
-        $fakeinput = document.createElement("span");
+    var _self = $(this),
+        _wrap = document.createElement("span"),
+        _fakeinput = document.createElement("span"),
+        _placeholder;
 
-    $($wrap).css({"position":"relative", "overflow":"hidden", "display":"block", "overflow":"hidden"}).attr("class", options.wrapclass);
-    $($fakeinput).append(options.html !== undefined ? options.html : options.placeholderdefault).attr("class", options.placeholdercontclass);
+    $(_wrap).css({"position":"relative", "overflow":"hidden", "display":"block", "overflow":"hidden"}).attr("class", options.wrapclass);
+    $(_fakeinput).append(options.html !== undefined ? options.html : options.placeholderdefault).attr("class", options.placeholdercontclass);
     
-    $self.wrap($wrap);
-    $self.attr("size", 1);
-    $self.css({"position":"absolute", "right":"0", "font-size":"200em", "z-index":"2", "opacity":0}).after($fakeinput);
-    _fakeinput = $("."+ options.placeholdercontclass, $self.parent());
+    _self.wrap(_wrap);
+    _self.attr("size", 1);
+    _self.css({"position":"absolute", "right":"0", "font-size":"200em", "z-index":"2", "opacity":0}).after(_fakeinput);
+    
+    // selecting fakeinput and wrap
+    _fakeinput = $("."+ options.placeholdercontclass, _self.parent());
+    _wrap = _self.parent();
+    _wrap.css({"height":_fakeinput.height() + "px", "width":_fakeinput.width() + "px"})
+    
+    // trigering change
+    _placeholder = $("."+ options.placeholderclass, _self.parent());
+    if(options.setvalue && _placeholder.length > 0) {
+      _self.change(function(){
+        _placeholder.html(this.value);
+        // change width if is a flexible input
+        _wrap.css("width", _fakeinput.width() + "px");
+      })
+    }
   });
 
 }
