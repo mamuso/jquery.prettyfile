@@ -19,12 +19,12 @@ $.fn.prettyfile = function(options){
         _fakeinput = document.createElement("span"),
         _placeholder;
 
-    $(_wrap).css({"position":"relative", "overflow":"hidden", "display":"block", "overflow":"hidden"}).attr("class", options.wrapclass);
+    $(_wrap).css({"position":"relative", "overflow":"hidden", "display":"block"}).attr("class", options.wrapclass);
     $(_fakeinput).append(options.html !== undefined ? options.html : options.placeholderdefault).attr("class", options.placeholdercontclass);
     
     _self.wrap(_wrap);
     _self.attr("size", 1);
-    _self.css({"position":"absolute", "right":"0", "font-size":"200em", "z-index":"2", "opacity":0}).after(_fakeinput);
+    _self.css({"position":"absolute", "margin": "0", "padding": "0", "right":"0", "top": "0", "font-size":"200em", "z-index":"3", "width":"auto", "opacity": "0"}).after(_fakeinput);
     
     // selecting fakeinput and wrap
     _fakeinput = $("."+ options.placeholdercontclass, _self.parent());
