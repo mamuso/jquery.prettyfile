@@ -1,7 +1,7 @@
 /**
 * Flexible file replacement
 *--------------------------------------------------------------------------*/
-$.fn.prettyfile = function(options){
+$.fn.prettyfile = function(opts){
 
   var defaults = {
     setvalue: true,
@@ -10,7 +10,7 @@ $.fn.prettyfile = function(options){
     placeholdercontclass: "pf_placeholder_cont",
     wrapclass: "pf_wrap_class"
   };
-  var options = $.extend(defaults, options||{});
+  var options = $.extend(defaults, opts||{});
 
   // replace me baby
   return this.each(function() {
@@ -29,7 +29,7 @@ $.fn.prettyfile = function(options){
     // selecting fakeinput and wrap
     _fakeinput = $("."+ options.placeholdercontclass, _self.parent());
     _wrap = _self.parent();
-    _wrap.css({"height":_fakeinput.height() + "px", "width":_fakeinput.width() + "px"})
+    _wrap.css({"height":_fakeinput.height() + "px", "width":_fakeinput.width() + "px"});
     
     // trigering change
     _placeholder = $("."+ options.placeholderclass, _self.parent());
@@ -38,8 +38,8 @@ $.fn.prettyfile = function(options){
         _placeholder.html(this.value);
         // change width if is a flexible input
         _wrap.css("width", _fakeinput.width() + "px");
-      })
+      });
     }
   });
 
-}
+};
