@@ -17,9 +17,7 @@ If you want to customize the fake input file html you can
  });
 
 
-## You have more options
-
-Yes, I know :) and you have a lot of options to customize it. Let's take a look:
+## Available options
 
 <table border="0" cellspacing="0" cellpadding="0">
   <thead>
@@ -53,19 +51,19 @@ Yes, I know :) and you have a lot of options to customize it. Let's take a look:
       <td>phcontclass</td>
       <td><span>String</span></td>
       <td>"pf_ph_cont"</td>
-      <td>W.</td>
+      <td>The html option will be wrapped with a span with this class.</td>
     </tr>
     <tr>
       <td>wrapclass</td>
       <td><span>String</span></td>
       <td>"pf_wrap_class"</td>
-      <td>.</td>
+      <td>The input and the wrapped html element will be wraped by a span with this class.</td>
     </tr>
     <tr>
       <td>selectedclass</td>
       <td><span>String</span></td>
       <td>"selected"</td>
-      <td>Show or hide ordering randomly the elements of the collection.</td>
+      <td>When you trigger the change function you will add that selectedclass to the wrapper.</td>
     </tr>
   </tbody>
 </table>
