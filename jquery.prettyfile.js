@@ -4,7 +4,6 @@
 *
 * Version: 0.0.1
 * Requires jQuery 1.3+
-* Docs: http://docs.jquery.com/Plugins/livequery
 *--------------------------------------------------------------------------*/
 (function($) {
     $.fn.prettyfile = function (opts) {
