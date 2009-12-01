@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>jquery.prettyfile example</title>
   <link rel="stylesheet" href="stylesheets/example.css" type="text/css" media="screen" charset="utf-8"/>
 </head>
@@ -11,20 +11,39 @@
 <body>
   
   
-  <form action="#" method="post" accept-charset="utf-8">
-    
+  <form action="#" method="post" accept-charset="utf-8" id="example1">
     <input type="file" name="wadus" id="clip"/>
-    
   </form>
+
+  <form action="#" method="post" accept-charset="utf-8" id="example2">
+    <input type="file" name="wadus" id="myfile"/>
+  </form>
+
+  <form action="#" method="post" accept-charset="utf-8" id="example3">
+    <input type="file" name="wadus" id="browse"/>
+  </form>
+
 
   <script src="../test/assets/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="../jquery.prettyfile.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
     $(function(){
-      // a simple file replacement
+      // example 1
       $("#clip").prettyfile({
-        html: "<strong><span>Choose File</span></strong><span class='pf_placeholder'>Choose a file</span>"
+        html: "<strong><span>Choose File</span></strong><span class='pf_ph'>Choose a file</span>"
       });
+
+      // example 2
+      $("#myfile").prettyfile({
+        setvalue: false,
+        html: "<strong><span>Choose File</span></strong>"
+      });
+
+      // example 3
+      $("#browse").prettyfile({
+        html: "<span class='pf_ph'>Select a file</span><strong><span>Browse</span></strong>"
+      });
+
     });
   </script>
 </body>
